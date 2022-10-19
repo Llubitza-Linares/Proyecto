@@ -20,5 +20,8 @@ func _process(delta):
 			state_machine.travel("walk")
 		if is_on_floor() and Input.is_action_just_pressed("ui_down"):
 			state_machine.travel("down")
+	else:
+		state_machine.travel("idle")
+		
 	move_and_slide(velocity,Vector2.UP)
 
