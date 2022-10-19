@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://game-sprites-1x.png" type="Texture" id=1]
+[ext_resource path="res://Scene/Tree.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 9.0
+height = 14.0
+
+[node name="Area2D" type="Area2D" groups=["tree"]]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+offset = Vector2( 0, -25 )
+hframes = 6
+region_enabled = true
+region_rect = Rect2( 228, 2, 102, 35 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -25 )
+shape = SubResource( 1 )

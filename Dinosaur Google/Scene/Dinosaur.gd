@@ -4,7 +4,7 @@ var velocity=Vector2.ZERO
 var jump=Vector2.UP * 600
 var gravity=Vector2.DOWN * 2000
 var down=Vector2.DOWN * 6000
-var start=true
+var start=false
 onready var state_machine = $AnimationTree.get("parameters/playback")
 
 func _process(delta):
@@ -20,6 +20,7 @@ func _process(delta):
 			state_machine.travel("walk")
 		if is_on_floor() and Input.is_action_just_pressed("ui_down"):
 			state_machine.travel("down")
+
 	else:
 		state_machine.travel("idle")
 		

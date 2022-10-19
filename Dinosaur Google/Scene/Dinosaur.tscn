@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://dinosaur.png" type="Texture" id=1]
 [ext_resource path="res://walk.png" type="Texture" id=2]
@@ -336,6 +336,9 @@ tracks/4/keys = {
 [sub_resource type="AnimationNodeAnimation" id=10]
 animation = "down"
 
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "idle"
+
 [sub_resource type="AnimationNodeAnimation" id=13]
 animation = "walk"
 
@@ -345,13 +348,17 @@ animation = "walk"
 switch_mode = 2
 auto_advance = true
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+
 [sub_resource type="AnimationNodeStateMachine" id=6]
 states/down/node = SubResource( 10 )
 states/down/position = Vector2( 575, 76.3333 )
+states/idle/node = SubResource( 17 )
+states/idle/position = Vector2( 107, 76.3333 )
 states/walk/node = SubResource( 13 )
 states/walk/position = Vector2( 288.333, 77.4527 )
-transitions = [ "walk", "down", SubResource( 15 ), "down", "walk", SubResource( 16 ) ]
-start_node = "walk"
+transitions = [ "walk", "down", SubResource( 15 ), "down", "walk", SubResource( 16 ), "idle", "walk", SubResource( 18 ) ]
+start_node = "idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=7]
 

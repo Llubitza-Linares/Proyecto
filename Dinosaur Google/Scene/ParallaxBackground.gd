@@ -1,11 +1,10 @@
 extends ParallaxBackground
 
-var start = false
-
+export var playing = false
+export var cloud_speed = 100
+export var floor_speed = 500
 
 func _process(delta):
-	if !start:
-		if Input.is_action_just_pressed("saltar"):
-			start=true
-			$Dinosaur.start = true
-			$ParallaxBackGround.playing = true
+	if playing:
+		$Cloud.motion_offset += Vector2.LEFT * cloud_speed * delta
+		$Floor.motion_offset += Vector2.LEFT * floor_speed * delta
