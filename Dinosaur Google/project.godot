@@ -12,7 +12,6 @@ config_version=4
 
 config/name="Dinosaur Google"
 run/main_scene="res://Scene/Game.tscn"
-config/icon="res://icon.png"
 
 [gui]
 
