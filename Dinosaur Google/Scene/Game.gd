@@ -4,13 +4,16 @@ var start = false
 var die=false
 var score
 var time=0
+
 var Tree_scene = preload("res://Scene/Tree.tscn")
 var Bird_scene = preload("res://Scene/Bird.tscn")
 
 func _process(delta):
 	if !start:
 		$Game_over.hide()
+		$Instrucciones.show()
 		if Input.is_action_just_pressed("saltar"):
+			$Instrucciones.hide()
 			$AudioStreamPlayer.playing=true
 			start=true
 			$Dinosaur.start = true

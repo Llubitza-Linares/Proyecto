@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://dinosaur.png" type="Texture" id=1]
 [ext_resource path="res://walk.png" type="Texture" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://idle.png" type="Texture" id=5]
 [ext_resource path="res://die.png" type="Texture" id=6]
 [ext_resource path="res://Sounds/start.mp3" type="AudioStream" id=7]
+[ext_resource path="res://Scene/Label.gd" type="Script" id=8]
+[ext_resource path="res://Fonts/8bitOperatorPlus-Regular.ttf" type="DynamicFontData" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 18.0
@@ -417,6 +419,9 @@ start_node = "idle"
 radius = 11.0
 height = 36.0
 
+[sub_resource type="DynamicFont" id=24]
+font_data = ExtResource( 9 )
+
 [node name="Dinosaur" type="KinematicBody2D"]
 script = ExtResource( 3 )
 
@@ -454,3 +459,18 @@ disabled = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
+
+[node name="Points" type="Label" parent="."]
+margin_left = 27.0
+margin_top = 119.0
+margin_right = 102.0
+margin_bottom = 143.0
+custom_colors/font_color = Color( 0.32549, 0.305882, 0.309804, 1 )
+custom_colors/font_color_shadow = Color( 0.32549, 0.305882, 0.309804, 1 )
+custom_fonts/font = SubResource( 24 )
+text = "Points: 00000"
+align = 1
+valign = 1
+script = ExtResource( 8 )
+
+[connection signal="points_change" from="." to="Points" method="_on_Dinosaur_points_change"]
